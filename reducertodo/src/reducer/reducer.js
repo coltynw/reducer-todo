@@ -1,41 +1,31 @@
-import { tsPropertySignature } from "@babel/types";
-
-
-
-
-
 
 export const initialState = {
     todos: [
         {
             todo: 'Learn about reducers',
             completed: false,
-            key: Date.now
+            key: Math.random()
           }
     ]
 }
-
-
   export const todoReducer = (state =[], action) => {
       switch (action.type) {
          case "ADD_TODO":
              return { ...state, 
-
                 todos: [
                     ...state.todos,
                     {
-                        key: Date.now,
+                        key: Math.random(),
                         todo: action.text,
-                        completed: true
+                        completed: false
                       }
                 ]
              };
 
         case "TOGGLE_COMPLETED":
             return { ...state, 
-
-                todos: state.todos.map( todo =>
-                    todo.id === action.id ? {
+                todos: state.todos.map( todo => 
+                    todo.id === action.payload ? {
                         ...todo,
                         completed: !todo.completed
                     } : todo)
