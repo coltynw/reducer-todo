@@ -12,10 +12,12 @@ function App() {
 
 
   const addTodo = item => dispatch({ type: 'ADD_TODO', text: item });
-  const toggleComplete = id => dispatch({ type: 'TOGGLE_COMPLETE', payload: id });
+  const toggleComplete = id => 
+  // {console.log(id)
+  dispatch({ type: 'TOGGLE_COMPLETE', payload: id });
   const clearCompleted = () => dispatch({ type: 'CLEAR_COMPLETED' });
 
-  console.log(state.todos);
+  // console.log(state.todos);
 
   // instead of render
   return (

@@ -4,7 +4,7 @@ export const initialState = {
         {
             todo: 'Learn about reducers',
             completed: false,
-            key: Math.random()
+            id: Math.random()
           }
     ]
 }
@@ -15,14 +15,15 @@ export const initialState = {
                 todos: [
                     ...state.todos,
                     {
-                        key: Math.random(),
+                        id: Math.random(),
                         todo: action.text,
                         completed: false
                       }
                 ]
              };
 
-        case "TOGGLE_COMPLETED":
+        case "TOGGLE_COMPLETE":
+            console.log(action.payload)
             return { ...state, 
                 todos: state.todos.map( todo => 
                     todo.id === action.payload ? {
