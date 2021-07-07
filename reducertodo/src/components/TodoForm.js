@@ -1,0 +1,33 @@
+import React, { useState } from 'react';
+
+
+const TodoForm = props => {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.addTodo(input);
+    setInput('');
+  };
+
+  const handleClear = e => {
+    e.preventDefault();
+    props.clearCompleted();
+  };
+
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="type here"
+        value={input}
+        onChange={e => setInput(e.target.value)}
+      />
+      <button type="submit">Add</button>
+      <button onClick={handleClear}>Clear</button>
+    </form>
+  );
+};
+
+export default TodoForm; 
